@@ -1,0 +1,53 @@
+.sidebar{
+    height: 100%;
+    width: 250px;
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; 
+    padding-top: 20px;
+    color: beige;
+    text-align: center;
+    margin-top: 72px;
+}
+
+.header{
+    color: honeydew;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    background-color: rgb(68, 68, 68);
+    left:0;
+    right: 0;
+}
+
+.new-project{
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.container-fluid{
+    margin-left: 250px;
+    margin-top: 72px;
+    left: 250px;
+}
+
+.toggle-display-off{
+    display: none;
+}
+
+.project-form{
+    padding: 10px;
+}
+
+input{
+    width: 100px;
+}
+
+.project{
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
