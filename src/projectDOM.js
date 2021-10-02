@@ -29,7 +29,7 @@ const changeProjectDOM=(()=>{
         projectName.type="text";
         const projectSubmit=document.createElement('button');
         projectSubmit.type="button";
-        projectSubmit.textContent="submit";
+        projectSubmit.textContent="add project";
 
         projectForm.appendChild(projectNameLabel);
         projectForm.appendChild(projectName);

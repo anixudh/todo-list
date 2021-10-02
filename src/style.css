@@ -42,12 +42,32 @@
     padding: 10px;
 }
 
-input{
-    width: 100px;
+.project-form input{
+    width: 120px;
 }
 
 .project{
     padding: 10px;
     margin: 5px;
     cursor: pointer;
+}
+
+.task{
+    border: 1px solid black;
+    border-radius: 5%;
+    width: 600px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.new-task{
+    cursor: pointer;
+    margin: 10px;
+}
+
+.task-heading{
+    font-weight: bolder;
+    margin-bottom: 10px;
 }
