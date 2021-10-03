@@ -53,6 +53,7 @@ const changeProjectDOM=(()=>{
     const openProjectPage=e=>{
 
         let projectKey;
+        //console.log(e.target.textContent.substr(0,e.target.textContent.length-2));
         changeTaskDOM.resetProject();
         const allProjects=document.querySelectorAll(".project");
         allProjects.forEach((project)=>{
@@ -60,22 +61,40 @@ const changeProjectDOM=(()=>{
         });
         projects.forEach((project)=>{
             
-            if(project.name==e.target.textContent){
+            if(project.name==e.target.textContent.substr(0,e.target.textContent.length-2)){
+                
                 projectKey=project;
             }
         })
         e.target.classList.add("project-click");
+        
         changeTaskDOM.openProject(projectKey);  
         //console.log(projects, e.target.textContent);
     };
     const addProject=(project)=>{
         const projectElement=document.createElement("div");
-        projectElement.textContent=`${project.name}`;
+
+        const projectName=document.createElement("div");
+        projectName.textContent=`${project.name}`;
+
+        const delProject=document.createElement("div");
+        delProject.textContent="🗑";
+        delProject.classList.add("delete-project");
+
+        projectElement.appendChild(projectName);
+        projectElement.appendChild(delProject);
         projectElement.classList.add("project");
         
         projectsDOM.appendChild(projectElement);
         projects.push(project);
 
+        const deleteProject=e=>{
+            projectElement.textContent="";
+            projectElement.style.display="none";
+            const index=projects.indexOf(project);
+            if(index>-1) projects.splice(index,1);
+        };
+        delProject.addEventListener('click',deleteProject);
         projectElement.addEventListener('click',openProjectPage);
         //console.log(projects);
     };
