@@ -116,3 +116,28 @@ a{
     text-decoration: none;
     color: black;
 }
+
+@media only screen and (max-width: 650px){
+
+    .sidebar{
+        width: 130px;
+    }
+
+    .container-fluid{
+        margin-left: 130px;
+    }
+
+    .task{
+        width: 320px;
+        padding: 5px;
+    }
+
+    .task-form{
+        width: 320px;
+
+    }
+
+    .task-form input{
+        width: 120px;
+    }
+}

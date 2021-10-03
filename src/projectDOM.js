@@ -27,8 +27,9 @@ const changeProjectDOM=(()=>{
         projectNameLabel.textContent="Name:"
         const projectName=document.createElement('input');
         projectName.type="text";
+        projectName.required = true;
         const projectSubmit=document.createElement('button');
-        projectSubmit.type="button";
+        projectSubmit.type="submit";
         projectSubmit.textContent="add project";
 
         projectForm.appendChild(projectNameLabel);
@@ -39,7 +40,7 @@ const changeProjectDOM=(()=>{
         newProject.classList.add("toggle-display-off");
 
         const submitProject=e=>{
-           
+           e.preventDefault();
             let project=Project(projectName.value);
             projectForm.classList.add("toggle-display-off");
             newProject.classList.remove("toggle-display-off");

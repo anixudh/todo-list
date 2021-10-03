@@ -6,7 +6,7 @@ let projects=[];
 
 const addNewProject=e=>{
 
-    console.log(e);
+    //console.log(e);
     changeProjectDOM.openProjectForm();
     projects=changeProjectDOM.getProjectArr();
     

@@ -1,6 +1,7 @@
 const changeTaskDOM=(()=>{
     let projectObj;
     //let tasks=[];
+    let today = new Date().toISOString().split('T')[0];
     const taskSpace=document.querySelector(".container-fluid");
     
     const Task=(name, date)=>{
@@ -42,40 +43,54 @@ const changeTaskDOM=(()=>{
         }
 
         const renameTaskClick=e=>{
+            changeDate.style.display="none";
+            renameTask.style.display="none";
             const newName=document.createElement("input");
             newName.type="text";
+            newName.required=true;
             const submitNewName=document.createElement("button");
-            submitNewName.type="button";
+            submitNewName.type="submit";
             taskName.style.display="none";
             submitNewName.textContent="rename";
             taskElement.appendChild(newName);
             taskElement.appendChild(submitNewName);
             const changeTaskName=e=>{
+                e.preventDefault();
                 taskName.textContent=`${newName.value}`;
                 taskElement.removeChild(newName);
                 taskElement.removeChild(submitNewName);
                 taskName.style.display="initial";
                 task.name=newName.value;
+                renameTask.style.display="block";
+                changeDate.style.display="block";
             }
             submitNewName.addEventListener('click',changeTaskName);
             
         }
 
         const changeTaskDate=e=>{
+            changeDate.style.display="none";
+            renameTask.style.display="none";
             const newDate=document.createElement("input");
             newDate.type="date";
+            newDate.setAttribute('min',today);
+            newDate.required=true;
             const submitNewDate=document.createElement("button");
-            submitNewDate.type="button";
+            submitNewDate.type="submit";
+            
             taskDate.style.display="none";
             submitNewDate.textContent="change date";
             taskElement.appendChild(newDate);
             taskElement.appendChild(submitNewDate);
             const submitTaskDate=e=>{
+                e.preventDefault();
                 taskDate.textContent=`Due Date: ${newDate.value}`;
                 taskElement.removeChild(newDate);
                 taskElement.removeChild(submitNewDate);
                 taskDate.style.display="initial";
                 task.date=newDate.value;
+                changeDate.style.display="block";
+                renameTask.style.display="block";
             }
             submitNewDate.addEventListener('click',submitTaskDate);
             
@@ -108,12 +123,15 @@ const changeTaskDOM=(()=>{
         taskNameLabel.textContent="Name:"
         const taskName=document.createElement('input');
         taskName.type="text";
+        taskName.required=true;
         const taskDateLabel=document.createElement('label');
         taskDateLabel.textContent="Due Date:"
         const taskDate=document.createElement('input');
         taskDate.type="date";
+        taskDate.setAttribute('min',today);
+        taskDate.required=true;
         const taskSubmit=document.createElement('button');
-        taskSubmit.type="button";
+        taskSubmit.type="submit";
         taskSubmit.textContent="add task";
 
         taskForm.appendChild(taskNameLabel);
@@ -126,6 +144,7 @@ const changeTaskDOM=(()=>{
         addTask.classList.add("toggle-display-off");
 
         const submitTask=e=>{
+            e.preventDefault();
             let task=Task(taskName.value,taskDate.value);
             taskForm.classList.add("toggle-display-off");
             addTask.classList.remove("toggle-display-off");
