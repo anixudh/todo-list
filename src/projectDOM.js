@@ -53,12 +53,18 @@ const changeProjectDOM=(()=>{
 
         let projectKey;
         changeTaskDOM.resetProject();
+        const allProjects=document.querySelectorAll(".project");
+        allProjects.forEach((project)=>{
+            if(project.classList.contains("project-click")) project.classList.remove("project-click");
+        });
         projects.forEach((project)=>{
+            
             if(project.name==e.target.textContent){
                 projectKey=project;
             }
         })
-        changeTaskDOM.openProject(projectKey);
+        e.target.classList.add("project-click");
+        changeTaskDOM.openProject(projectKey);  
         //console.log(projects, e.target.textContent);
     };
     const addProject=(project)=>{
