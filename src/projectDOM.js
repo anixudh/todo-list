@@ -51,7 +51,7 @@ const changeProjectDOM=(()=>{
 
     };
     const openProjectPage=e=>{
-
+        if(!e.target.className) return;
         let projectKey;
         //console.log(e.target.textContent.substr(0,e.target.textContent.length-2));
         changeTaskDOM.resetProject();
@@ -93,9 +93,11 @@ const changeProjectDOM=(()=>{
             projectElement.style.display="none";
             const index=projects.indexOf(project);
             if(index>-1) projects.splice(index,1);
+            //localStorage.setItem('projects',JSON.stringify(projects));
         };
         delProject.addEventListener('click',deleteProject);
-        projectElement.addEventListener('click',openProjectPage);
+        projectElement.addEventListener('click',openProjectPage,false);
+        //localStorage.setItem('projects',JSON.stringify(projects));
         //console.log(projects);
     };
 
@@ -106,6 +108,7 @@ const changeProjectDOM=(()=>{
     return {
         openProjectForm,
         getProjectArr,
+        addProject
     };
 })();
 

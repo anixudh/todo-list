@@ -164,7 +164,7 @@ const changeTaskDOM=(()=>{
         taskSpace.appendChild(taskHeading);
 
        if(project.tasks.length!=0){
-            console.log(project.tasks);
+            //console.log(project.tasks);
             project.tasks.forEach((task)=>{
                 newTask(task);
             })
