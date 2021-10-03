@@ -56,6 +56,10 @@ const changeProjectDOM=(()=>{
         //console.log(e.target.textContent.substr(0,e.target.textContent.length-2));
         changeTaskDOM.resetProject();
         const allProjects=document.querySelectorAll(".project");
+        const todayBtn=document.querySelector(".today-tasks");
+        const thisWeekBtn=document.querySelector(".this-week-tasks");
+        todayBtn.classList.remove("project-click");
+        thisWeekBtn.classList.remove("project-click");
         allProjects.forEach((project)=>{
             if(project.classList.contains("project-click")) project.classList.remove("project-click");
         });
@@ -76,6 +80,7 @@ const changeProjectDOM=(()=>{
 
         const projectName=document.createElement("div");
         projectName.textContent=`${project.name}`;
+        projectName.classList.add("project-name");
 
         const delProject=document.createElement("div");
         delProject.textContent="🗑";
@@ -96,7 +101,7 @@ const changeProjectDOM=(()=>{
             //localStorage.setItem('projects',JSON.stringify(projects));
         };
         delProject.addEventListener('click',deleteProject);
-        projectElement.addEventListener('click',openProjectPage,false);
+        projectElement.addEventListener('click',openProjectPage,true);
         //localStorage.setItem('projects',JSON.stringify(projects));
         //console.log(projects);
     };

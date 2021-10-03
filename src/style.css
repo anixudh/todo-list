@@ -33,7 +33,7 @@
     margin-left: 250px;
     margin-top: 72px;
     left: 250px;
-    
+    max-width: 600px;
 }
 
 .toggle-display-off{
@@ -101,7 +101,9 @@
     
     background-color: chartreuse;
 }
-
+.project-name{
+    pointer-events: none;
+}
 .project-click{
     background-color: rgb(75, 74, 74);
 }
@@ -120,6 +122,16 @@ a{
 }
 
 .delete-project{
+    cursor: pointer;
+}
+
+.today-tasks{
+   margin: 15px;
+   cursor: pointer;
+}
+
+.this-week-tasks{
+    margin: 15px;
     cursor: pointer;
 }
 

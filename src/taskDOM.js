@@ -181,6 +181,7 @@ const changeTaskDOM=(()=>{
     return {
         resetProject,
         openProject,
+        newTask,
     }
 })();
 
