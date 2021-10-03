@@ -120,24 +120,24 @@ a{
 @media only screen and (max-width: 650px){
 
     .sidebar{
-        width: 130px;
+        width: 100px;
     }
 
     .container-fluid{
-        margin-left: 130px;
+        margin-left: 100px;
     }
 
     .task{
-        width: 320px;
+        width: 250px;
         padding: 5px;
     }
 
     .task-form{
-        width: 320px;
+        width: 250px;
 
     }
 
     .task-form input{
-        width: 120px;
+        width: 80px;
     }
 }
